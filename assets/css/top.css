@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+#key-visual h2 {
+  position: relative;
+  margin: 0;
+}
+#key-visual h2 span {
+  position: absolute;
+  color: #7D869A;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+#key-visual .container.full .viewport-wrap.first-view .movie {
+  width: 100%;
+  height: 100%;
+}
+#key-visual .container.full .viewport-wrap.first-view .movie video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.primary {
+  bottom: 10%;
+  left: -30px;
+  padding: 10px;
+  background-color: rgb(98, 198, 255);
+  transform: rotate(-3deg);
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.primary .header-inner {
+  padding: 0 15px;
+  transform: rotate(-5deg);
+  background-color: rgb(255, 140, 0);
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.primary .header-inner h2 {
+  padding: 0 15px 0 60px;
+  font-size: 8vw;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.primary .header-inner h2 span {
+  left: 40px;
+  top: -2rem;
+  padding: 0 10px;
+  font-size: 1.5rem;
+  color: rgb(98, 198, 255);
+  background-color: rgb(255, 255, 255);
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.secondry {
+  display: flex;
+  column-gap: 15px;
+  bottom: 2%;
+  right: 0%;
+  width: 50%;
+  height: 80px;
+  border-radius: 40px 0 0 40px;
+  padding: 0 40px;
+  background-color: rgb(255, 255, 255);
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.secondry h2 {
+  display: block;
+  margin: 0;
+  font-size: 1.875rem;
+  line-height: 80px;
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.secondry p {
+  display: block;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 80px;
+}
+#key-visual .container.full .viewport-wrap .viewport-inner.secondry p.more {
+  margin-left: auto;
+}
+
+#story .wrapper {
+  background-image: url("../images/top-page/bg-wire.svg");
+  background-repeat: no-repeat;
+}
+#story .container p {
+  text-align: center;
+  line-height: 3;
+}
+
+#about-us .container.wide {
+  background: rgb(255, 255, 255);
+  padding: 120px 150px;
+  border-radius: 300px;
+}
+#about-us .container.wide .column-single,
+#about-us .container.wide .column-flex {
+  padding: 30px 0;
+  align-items: center;
+}
+#about-us .container.wide .column-single p,
+#about-us .container.wide .column-flex p {
+  color: rgb(138, 77, 0);
+  line-height: 3;
+}
+
+#concept .container {
+  height: 1400px;
+  background-image: url("../images/top-page/images_top-concept_group.png"), url("../images/top-page/bg-concept.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#concept h2 {
+  position: relative;
+  color: rgb(138, 77, 0);
+}
+#concept h2 span {
+  position: absolute;
+  left: 50%;
+  top: calc(-4.5rem * 2);
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  color: rgb(255, 140, 0);
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  font-weight: 600;
+}
+#concept .button-wrap {
+  margin-top: 30px;
+}
+
+#event .container.full {
+  background-image: url("../images/top-page/bg-event.svg");
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+  border-radius: 500px 500px 0 0;
+  padding: 120px 150px;
+}
+#event .container .catch-copy {
+  color: rgb(255, 140, 0);
+}
+#event .container h2 {
+  position: relative;
+  text-align: left;
+  margin-bottom: 30px;
+}
+#event .container h2 span {
+  position: absolute;
+  left: 0;
+  top: -1rem;
+  color: rgb(255, 140, 0);
+  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+#event .container p {
+  line-height: 2;
+}
+#event .container .inside-box.double .arrow {
+  flex: none;
+  align-self: center;
+  background: transparent;
+}
+#event .container .inside-box .nested-box.custom .button-wrap {
+  padding: 0;
+}
+#event .container .inside-box .button_cover {
+  flex-grow: 1;
+}
+
+#voice {
+  background-color: rgb(255, 255, 255);
+}
+#voice .container.full {
+  padding: 120px 0;
+  background-image: url("../images/top-page/bg-voice.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#voice .container.full .message {
+  padding: 30px 0;
+  color: rgb(138, 77, 0);
+}
+#voice .container.full .message p {
+  text-align: center;
+}
+#voice .container.full .television {
+  position: relative;
+  width: 60%;
+  margin: auto;
+}
+#voice .container.full .television .television-wrap {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  aspect-ratio: 10/8;
+}
+#voice .container.full .television .television-wrap img {
+  width: 100%;
+}
+#voice .container.full .television .television-inner {
+  position: absolute;
+  z-index: 10;
+  left: 46%;
+  top: 8%;
+  width: 82%;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  aspect-ratio: 10/8;
+  border-radius: 70px;
+  overflow: hidden;
+}
+#voice .container.full .television .television-inner video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 10/8;
+}
+
+#plan .container {
+  display: flex;
+  padding: 150px 150px;
+  flex-direction: column;
+  background-image: url("../images/top-page/bg-plan.svg");
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 10/7.2;
+}
+#plan .container .column-flex {
+  flex: 1;
+  gap: 0;
+  align-items: flex-end;
+}
+#plan .container .inside-box {
+  display: flex;
+  flex-direction: column;
+}
+#plan .container .inside-box.expand {
+  flex: 2;
+}
+#plan .container .inside-box.blue {
+  color: rgb(98, 198, 255);
+}
+#plan .container .inside-box.orange {
+  color: rgb(255, 140, 0);
+}
+#plan .container .inside-box.brown {
+  color: rgb(138, 77, 0);
+}
+#plan .container .inside-box.brown p {
+  font-size: 0.75rem;
+  line-height: 48px;
+}
+#plan .container .inside-box p {
+  display: block;
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgb(138, 77, 0);
+  font-size: 1.5rem;
+}
+#plan .container .inside-box p.button {
+  border-bottom: none;
+  pointer-events: none;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+}
+#plan .container .inside-box p.button.blue {
+  background-color: rgb(98, 198, 255);
+}
+#plan .container .inside-box p.button.orange {
+  background-color: rgb(255, 140, 0);
+}
+
+#blog .wrapper {
+  background-image: url("../images/top-page/bg-blog.png");
+  background-color: rgb(255, 140, 0);
+}/*# sourceMappingURL=top.css.map */

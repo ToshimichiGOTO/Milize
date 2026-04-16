@@ -1,0 +1,32 @@
+{
+    "folders": [
+        {
+            "path": "./"
+        }
+    ],
+    "settings": {
+        "window.zoomLevel": 0.2,
+        "workbench.editor.enablePreview": false,
+        "liveSassCompile.settings.autoprefix": [],
+        "liveSassCompile.settings.formats": [
+            {
+                "format": "expanded",
+                "extensionName": ".css",
+                "savePath": "assets/css",
+                "charset": true //
+            }
+        ],
+        "liveSassCompile.settings.includeItems": [],
+        "php.validate.executablePath": "C:/Users/t-goto/AppData/Roaming/Local/lightning-services/php-8.2.29+0/bin/win64/php.exe",
+        "workbench.colorCustomizations": {
+            // アクティブなタブの背景色（例：濃い青）
+            "tab.activeBackground": "#1e4c77",
+            // アクティブなタブの文字色（例：白）
+            "tab.activeForeground": "#ffffff",
+            // アクティブなタブの上のボーダー色（例：明るい青）
+            "tab.activeBorderTop": "#007fd4",
+            "minimap.background": "#333333" // 好みのカラーコードに変更
+
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+
+    "folders": [
+        {
+            "path": "./"
+        }
+    ],
+    "settings": {
+        "window.zoomLevel": 1,
+        "workbench.editor.enablePreview": false,
+        "liveSassCompile.settings.autoprefix": [],
+        "liveSassCompile.settings.formats": [
+            {
+                "format": "expanded",
+                "extensionName": ".css",
+                "savePath": "assets/css"
+            }
+        ],
+        "liveSassCompile.settings.includeItems": [],
+        "php.validate.executablePath": "C:/MAMP/bin/php/php8.0.1/php.exe",
+        "php.debug.executablePath": "",
+    }
+}

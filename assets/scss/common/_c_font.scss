@@ -1,0 +1,464 @@
+//function setting
+@use "../common/a-function" as *;
+
+// ==================================================
+
+// フォント PC
+// ==================================================
+
+// *************************
+// 見出し
+// *************************
+.header {
+	line-height: $line-height-low;
+}
+
+h1 {
+	@extend .header;
+	font-size: $fontSize42;
+	font-weight: 500;
+}
+
+.brackets {
+	position: relative;
+	padding: 10px 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+
+	//鍵括弧の処理
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		width: 18px;
+		height: 40px;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	&::before {
+		top: 0;
+		left: 0;
+		border-top: 2px solid $Gray;
+		border-left: 2px solid $Gray;
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0;
+		border-bottom: 2px solid $Gray;
+		border-right: 2px solid $Gray;
+	}
+}
+
+
+h2 {
+	@extend .header;
+	font-size: $fontSize42;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: calc($CommonMargin / 2);
+	color: $MainColor;
+
+	&.fit {
+		width: fit-content;
+		padding: 25px 0 10px 0;
+		margin: auto;
+		text-align: center;
+	}
+
+	b {
+
+		&.orange {
+			color: $MainColor;
+		}
+
+		&.blue {
+			color: $MainColor-blue;
+		}
+
+		&.yellow {
+			color: $MainColor-yellow;
+		}
+	}
+}
+
+h3 {
+	@extend .header;
+	font-size: $fontSize24;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+h4 {
+	@extend .header;
+	font-size: $fontSize24;
+	font-weight: 300;
+}
+
+h5 {
+	@extend .header;
+	font-size: $fontSize18;
+	font-weight: 500;
+}
+
+// *************************
+// 装飾
+// *************************
+.head-border {
+	//親要素の両端までボーダー
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	&:before,
+	&:after {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background-color: $Gray;
+	}
+
+	&:before {
+		margin-right: 0.5rem;
+	}
+
+	&:after {
+		margin-left: 0.5rem;
+	}
+}
+
+.head-border_right {
+	//親要素の右辺までボーダー
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	&:after {
+		content: "";
+		height: 1px;
+		flex-grow: 1;
+		background-color: $Gray;
+	}
+
+	&:after {
+		margin-left: 0.5rem;
+	}
+}
+
+.head-dash {
+	//左右に短いボーダーを引くクラス
+	font-weight: 500;
+
+	&:before,
+	&:after {
+		content: "—";
+	}
+
+	&:before {
+		margin-right: 0.5rem;
+	}
+
+	&:after {
+		margin-left: 0.5rem;
+	}
+}
+
+.head-dash_right {
+	//右に短いボーダーを引くクラス
+	font-weight: 500;
+
+	&:after {
+		content: "—";
+	}
+
+	&:after {
+		margin-left: 0.5rem;
+	}
+}
+
+// ************************* 
+// 本文
+// ************************* 
+p {
+	font-size: $fontSize20;
+	font-weight: 400;
+	line-height: $line-height-midium;
+
+	&.small {
+		line-height: $line-height-low;
+	}
+
+	&.read-copy {
+		font-size: $fontSize20;
+		font-weight: 500;
+		margin-top: $CommonMargin;
+		line-height: $line-height-high;
+	}
+}
+
+small {
+	font-size: $fontSize12;
+}
+
+strong {
+	font-weight: 700;
+}
+
+// ************************* 
+// リスト
+// ************************* 
+//ul,ol {	}
+
+// *************************
+//　短いセンテンス（画面サイズで可変
+// ************************* 
+.catch-copy {
+	font-weight: 700;
+	line-height: $line-height-low;
+	margin-top: calc($CommonMargin / 2);
+	margin-bottom: calc($CommonMargin / 2);
+
+
+	&.small {
+		font-size: clamp($fontSize15, 1.25vw, $fontSize24);
+	}
+
+	&.medium {
+		font-size: clamp($fontSize18, 2.1vw, $fontSize36);
+	}
+
+	&.large {
+		font-size: clamp($fontSize24, 2.8vw, $fontSize42);
+	}
+
+	&.xlarge {
+		font-size: clamp($fontSize36, 3vw, $fontSize47);
+	}
+}
+
+// *************************
+//　長いセンテンス（リード等
+// ************************* 
+.read-sentence {
+	font-size: $fontSize20;
+	font-weight: 500;
+	line-height: $line-height-high;
+}
+
+// *************************
+//　装飾
+// ************************* 
+.copy-box {
+	//角丸の座分屯
+	width: fit-content;
+	padding: 21px 40px;
+	margin: 0 auto 80px auto;
+	background: linear-gradient(45deg, #606060, #606060, #606060, #e7e5d4, #606060);
+	border-radius: 80px;
+	overflow: hidden;
+	color: $White;
+}
+
+.highlighter {
+	//文字ぎりぎりの座分屯
+	display: block;
+	width: fit-content;
+	padding: 0px;
+	font-weight: 700;
+
+	&.gray {
+		background-color: $Gray;
+		color: $White;
+	}
+}
+
+@mixin underline {
+	position: relative;
+	z-index: 50;
+	text-decoration: none;
+	padding-bottom: 0px;
+}
+
+.underline {
+	&-blue {
+		@include underline;
+	}
+
+	&-orange {
+		@include underline;
+	}
+}
+
+@mixin before {
+	content: '';
+	position: absolute;
+	z-index: -50;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 7px;
+}
+
+.underline {
+	&-blue {
+		&::before {
+			@include before;
+			background-color: $MainColor-blue10;
+		}
+	}
+
+	&-orange {
+		&::before {
+			@include before;
+			background-color: $MainColor-20;
+		}
+	}
+
+}
+
+
+
+// ************************* 
+// 文字揃え
+// ************************* 
+.text-align_center {
+	text-align: center;
+}
+
+.text-align_left {
+	text-align: left;
+}
+
+.text-align_right {
+	text-align: right;
+}
+
+.text-align_justify {
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+// ************************* 
+// 文字揃え
+// ************************* 
+.text-color_white {
+	color: $White;
+}
+
+
+// ==================================================
+
+// フォント SP
+// ==================================================
+
+@media screen and (max-width:$BaseMediaSize) {
+
+	// *************************
+	//　見出し
+	// ************************* 
+	h1 {
+		font-size: $fontSize30;
+	}
+
+	.brackets {
+		padding: 10px 20px;
+
+		&::before,
+		&::after {
+			position: absolute;
+			content: '';
+			width: 12px;
+			height: 28px;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		&::before {
+			top: 0;
+			left: 0;
+			border-top: 2px solid $Gray;
+			border-left: 2px solid $Gray;
+		}
+
+		&::after {
+			bottom: 0;
+			right: 0;
+			border-bottom: 2px solid $Gray;
+			border-right: 2px solid $Gray;
+		}
+	}
+
+	h2 {
+		font-size: $fontSize24;
+	}
+
+	h3 {
+		font-size: $fontSize20;
+	}
+
+	h4 {
+		font-size: $fontSize20;
+	}
+
+	h5 {
+		font-size: $fontSize15;
+	}
+
+	p {
+		line-height: 1.75;
+		text-align: justify;
+
+		&.small {
+			line-height: 1.25;
+		}
+
+		&.read-copy {
+			font-size: $fontSize18;
+			line-height: 1.75;
+		}
+	}
+
+
+	small {
+		font-size: $fontSize10;
+	}
+
+	// *************************
+	//　短いセンテンス（画面サイズで可変
+	// ************************* 
+	.catch-copy {
+		font-weight: 700;
+		line-height: $line-height-low;
+
+		&.small {
+			font-size: clamp($fontSize15, 1.25vw, $fontSize20);
+		}
+
+		&.medium {
+			font-size: clamp($fontSize18, 1.5vw, $fontSize30);
+		}
+
+		&.large {
+			font-size: clamp($fontSize24, 2.1vw, $fontSize36);
+		}
+
+		&.xlarge {
+			font-size: clamp($fontSize18, 2.5vw, $fontSize36);
+		}
+	}
+
+	// *************************
+	//　長いセンテンス
+	// ************************* 
+	.read-sentence {
+		font-size: $fontSize18;
+		line-height: $line-height-midium;
+	}
+
+	// *************************
+	//　装飾
+	// ************************* 
+
+}

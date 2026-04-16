@@ -1,0 +1,9 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+  deny from all
+</Files>
+
+RewriteEngine on
+RewriteRule ^index.html$ index.php
+RewriteRule ^form.html$ index.php
+RewriteRule ^confirm.html$ index.php
+

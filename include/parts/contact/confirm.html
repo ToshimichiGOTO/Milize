@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="form.css">
+
+  <title>入力フォーム</title>
+</head>
+
+<body>
+<div id="wrapper">
+  <h1 class="text-skewers">入力内容の確認</h1>
+
+  <form action="index.php" method="post">
+    <input type="hidden" name="name" value="<?php cv($_POST['name']); ?>">
+    <input type="hidden" name="kana" value="<?php cv($_POST['kana']); ?>">
+    <input type="hidden" name="mail" value="<?php cv($_POST['mail']); ?>">
+    <input type="hidden" name="msg" value="<?php cv($_POST['msg']); ?>">
+
+    <table class="contact" summary="入力フォーム">
+      <tbody>
+        <tr>
+          <th width="280">氏名 <span>※必須</span></th>
+          <td><?php cv($_POST['name']); ?></td>
+        </tr>
+        <tr>
+          <th width="280">氏名（ふりがな）  <span>※必須</span></th>
+          <td><?php cv($_POST['kana']); ?></td>
+        </tr>
+        <tr>
+          <th>メールアドレス <span>※必須</span></th>
+          <td><?php cv($_POST['mail']); ?></td>
+        </tr>
+         <th>お問い合わせ内容</th>
+          <td><?php cv($_POST['msg'],1); ?></td>
+        </tr>
+       </tbody>
+      </table>
+	<div class="buttom-area">
+    	<input value="戻る" class="g-button button btnL" type="submit" name="back">
+    	<input value="送信する" class="n-button button" type="submit" name="confirm" onClick="javascript:this.blur();">
+	</div>
+  </form>
+</div>
+</body>
+</html>

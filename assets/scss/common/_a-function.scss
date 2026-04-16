@@ -1,0 +1,114 @@
+// 変数
+// *************************
+
+// 基本設定
+$BaseMediaSize: 1200px;
+$SP-Width: 100%;
+$Images: "../images/";
+//url("#{$Images}******.jpg");
+
+// カラー
+$MainColor: rgba(255, 140, 0, 1.0);
+$MainColor35: rgba(255, 215, 166, 1.0);
+$MainColor-20: rgba(255, 238, 217, 1.0);
+$MainColor-Pale: rgba(255, 234, 207, 1.0);
+
+$PointColor: rgba(0, 119, 237, 1.0);
+$PointColor-Pale: rgba(204, 228, 251, 1.0);
+
+$AttentionColor: rgba(191, 72, 0, 1.0);
+$AttentionColor-Pale: rgba(242, 218, 204, 1.0);
+
+$MainColor-blue: rgba(98, 198, 255, 1.0);
+$MainColor-blue10: rgba(224, 244, 255, 1.0);
+$MainColor-brown: rgba(138, 77, 0, 1.0);
+$MainColor-yellow: rgba(255, 229, 0, 1.0);
+$MainColor-pink: rgba(255, 107, 107, 1.0);
+$MainColor-pink10: rgba(255, 238, 238, 1.0);
+
+
+$Black: rgba(0, 0, 0, 1.0);
+$Gray: rgba(81, 85, 89, 1.0);
+$Gray-Light: rgba(137, 141, 146, 1.0);
+$Gray-Pale: rgba(226, 227, 228, 1.0);
+$White: rgba(255, 255, 255, 1.0);
+
+$TripleRED: rgba(245, 35, 5, 1.0);
+$TripleBLUE: rgba(30, 212, 133 , 1.0);
+$TripleGREEN: rgba(0, 133, 235 , 1.0);
+
+$alpha: rgba(0,0,0,0.0);
+
+// ヘッダー
+$header-height: 96px;
+$header-height-SP: 60px;
+$header-bg:rgba($Black,0.8);
+$header-element:rgba($White,1.0);
+
+// フッター
+$footer-height: 48px;
+$footer-height-SP: 48px;
+$footer-bg:rgba($Black,0.8);
+$footer-element:rgba($White,1.0);
+
+// 空き
+$CommonMargin: 80px;
+$CommonMargin-SP: 24px;
+$CommonPadding: 24px;
+$CommonPadding-SP: 12px;
+$CommonGap: 30px;
+
+// センタリング　@include transform
+@mixin transform($valuex:-50%, $valuey:-50%){
+    transform: translate($valuex, $valuey);
+    -webkit-transform: translate($valuex, $valuey);
+    -ms-transform: translate($valuex, $valuey);
+}
+
+@mixin transformY($valuex:0%, $valuey:-50%){
+    transform: translate($valuex, $valuey);
+    -webkit-transform: translate($valuex, $valuey);
+    -ms-transform: translate($valuex, $valuey);
+}
+
+@mixin transformX($valuex:-50%, $valuey:0%){
+    transform: translate($valuex, $valuey);
+    -webkit-transform: translate($valuex, $valuey);
+    -ms-transform: translate($valuex, $valuey);
+}
+
+// 装飾関連
+$CommonBorder: 1px solid $Gray-Light;
+$CommonButtonBorder: 1px solid $Gray;
+
+$ShadowDefault: 0px 3px 9px rgba($Black,0.12);
+$ShadowWide: 0px 5px 15px rgba($Black,0.12);
+
+// 文字
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+$Sans-Serif: "Noto Sans JP", YuGothic, "Yu Gothic medium", "Hiragino Sans", Meiryo, "sans-serif";
+$Serif: 'Noto Serif JP', "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "serif";
+
+$MainFontColor: rgba(81, 85, 89, 1.0);
+$Link-Color: rgba(0, 119, 237, 1.0);
+
+$line-height-high: 3.0;
+$line-height-midium: 2.0;
+$line-height-low: 1.42;
+
+$baseFontSize: 16px;
+$fontSize10: calc(10px / $baseFontSize) + rem;
+$fontSize12: calc(12px / $baseFontSize) + rem;
+$fontSize15: calc(15px / $baseFontSize) + rem;
+$fontSize18: calc(18px / $baseFontSize) + rem;
+$fontSize20: calc(20px / $baseFontSize) + rem;
+$fontSize24: calc(24px / $baseFontSize) + rem;
+$fontSize30: calc(30px / $baseFontSize) + rem;
+$fontSize36: calc(36px / $baseFontSize) + rem;
+$fontSize42: calc(42px / $baseFontSize) + rem;
+$fontSize47: calc(47px / $baseFontSize) + rem;
+$fontSize56: calc(56px / $baseFontSize) + rem;
+$fontSize66: calc(66px / $baseFontSize) + rem;
+$fontSize72: calc(72px / $baseFontSize) + rem;

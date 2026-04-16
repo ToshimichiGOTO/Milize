@@ -1,0 +1,722 @@
+//function setting
+@use "../common/a-function" as *;
+
+
+//==================================================
+
+//消してね
+//==================================================
+.contents-hide {
+    display: none;
+}
+
+//==================================================
+
+//共通要素
+//==================================================
+
+
+//==================================================
+
+//共通クラス
+//==================================================
+
+//全体包括とposition付与
+.all-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    min-height: calc(100vh - $footer-height);
+}
+
+main {
+      flex: 1;
+}
+
+//画面幅全体対応　要らんくないか？
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    width: 100%;
+
+    &.padding-less {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    &.padding-half {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    &.orange {}
+
+    &.light-gray {
+        background: linear-gradient(70deg, $Gray, 80%, $White);
+    }
+
+    &.background-space {
+        padding: $CommonMargin 0;
+    }
+}
+
+//コンテンツ幅調整
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $CommonMargin * 2;
+
+    &:last-child {
+        margin-bottom: 0px
+    }
+
+    &:first-child {
+        margin-top: 0px;
+    }
+
+    &.full {
+        width: 100%;
+
+        .absolute-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform;
+        }
+
+        //
+        //全画面表示向け
+        //
+        .viewport-wrap {
+            position: relative; //　←　inner設置向け
+            width: 100%;
+            height: 100vh;
+            height: 100lvh;
+            height: 100svh;
+            margin: 0 auto;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #ccc;
+
+            .viewport-inner {
+                position: absolute;
+
+                &.title-line {
+                    bottom: 0%;
+                    left: 50%;
+                    @include transformX;
+                    width: fit-content;
+                    padding: calc($CommonMargin / 4) calc($CommonMargin / 2);
+                    background-color: rgba($White, 0.6);
+                    backdrop-filter: blur(4px);
+                    -webkit-backdrop-filter: blur(4px);
+
+                    .catch-copy {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &.wide {
+        width: calc(#{$BaseMediaSize} + 300px);
+
+        header {
+            padding: 0 calc($CommonMargin / 2);
+        }
+    }
+
+    &.default {
+        width: $BaseMediaSize;
+
+        header {
+            padding: calc($CommonMargin / 2);
+        }
+    }
+
+    &.narrow {
+        width: calc(#{$BaseMediaSize} - 300px);
+
+        header {
+            padding: calc($CommonMargin / 2);
+        }
+    }
+
+    &.contact {
+        min-width: 960px;
+        max-width: 1080px;
+        margin-bottom: 0;
+    }
+
+    .inner-box {
+        .internal-box {
+            .innermost-box {}
+        }
+
+    }
+}
+
+
+//==================================================
+
+// column関連
+//==================================================
+
+.column {
+    //&-wrapper {}
+
+    &-single {
+        padding: calc($CommonMargin / 2);
+    }
+
+    //&-box {}
+
+    //&-wrap {}
+
+        &-vertical {
+            flex-direction: column;
+    }
+
+
+    &-flex {
+        padding: calc($CommonMargin / 2);
+        column-gap: 45px;
+        @extend .flex-basis;
+
+        &.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .inside-box {
+            flex: 1;
+            display: block;
+
+            img {
+                width: 100%;
+            }
+
+            &.double {
+                flex: 2;
+            }
+
+            &.nested {
+                @extend .flex-basis;
+
+                .nested-box {
+                    flex: 1;
+                    display: block;
+
+                    &.split {
+                        @extend .flex-split;
+
+                        .split-box {
+                            flex: 1;
+                            display: block;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+//==================================================
+
+// flex関連
+//==================================================
+
+.flex {
+    &-basis {
+        display: flex;
+        gap: 25px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    &-split {
+        display: flex;
+        gap: 25px;
+        align-items: stretch;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+
+//==================================================
+
+//画像
+//==================================================
+
+.image {
+    &-wrap {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        text-align: center;
+
+        &.float-left {
+            float: left;
+            margin: 0 calc($CommonMargin / 2) calc($CommonMargin / 4) 0;
+        }
+
+        &.border img {
+            border: $CommonBorder;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &.anime img:hover {
+            transform: scale(1.1);
+            transition: 0.9s all;
+        }
+    }
+
+    &-box {
+        overflow: hidden;
+        margin: auto;
+
+        &.full-size {
+            height: 100vh;
+        }
+
+        &.fix-w900 {
+            width: 900px;
+        }
+
+        &.fix-w700 {
+            width: 700px;
+        }
+
+        &.fix-w500 {
+            width: 500px;
+        }
+
+        &.fix-w400 {
+            width: 400px;
+        }
+
+        &.fix-w300 {
+            width: 300px;
+        }
+
+        &.fix-w150 {
+            width: 150px;
+        }
+
+        &.fix-h400 {
+            //　←　width指定が必要な場合はここ
+            height: 400px;
+        }
+
+        &.fix-h200 {
+            //　←　width指定が必要な場合はここ
+            height: 200px;
+        }
+
+        &.contain {
+            img {
+                object-fit: contain;
+
+            }
+
+            &.right img {
+                object-position: right;
+            }
+        }
+
+        &.none {
+            img {
+                object-fit: none;
+            }
+        }
+
+        &.image-space {
+            padding: calc($CommonMargin / 2);
+        }
+    }
+}
+
+//==================================================
+
+//装飾
+//==================================================
+
+.flame {
+    border: 1px solid #666;
+    background-color: rgba($White, 0.75);
+
+    &.radius {
+        border-radius: 25px;
+        overflow: hidden;
+    }
+}
+
+
+//==================================================
+
+//投稿関連
+//==================================================
+
+.list-wrapper {
+    /*border-top: 1px solid $Gray;*/
+}
+
+.list-item {
+    padding: calc($CommonMargin / 4);
+    margin-bottom: calc($CommonMargin / 4);
+    box-shadow: $ShadowWide;
+
+    h2 {
+        font-size: $fontSize24;
+        margin-bottom: 0;
+        font-weight: 500;
+
+    }
+
+    a {
+        color: $Gray;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    img {}
+
+    .image-wrap {
+        width: 300px;
+    }
+
+    .attached {
+        display: flex;
+        gap: 25px;
+
+        p {
+            margin: 0;
+        }
+
+        .datetime {
+            display: inline-block;
+            margin: 0 15px 0 0;
+        }
+
+        .category {
+            display: inline-block;
+            width: 100px;
+            padding: 4px 0 6px 0;
+            font-size: $fontSize12;
+            font-weight: 500;
+            text-align: center;
+            background-color: $Gray-Light;
+            border-radius: 5px;
+            color: $White;
+        }
+
+        ul {
+            height: auto;
+            text-align: right;
+            margin: 0;
+
+            li {
+                vertical-align: text-bottom;
+                display: inline;
+                font-size: $fontSize12;
+                border-radius: 5px;
+                background-color: $Gray;
+                padding: 4px 10px 6px 10px;
+                margin-left: 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .date-category {
+        width: 35%;
+    }
+
+    .tag {
+        width: calc(65% - 25px);
+    }
+}
+
+.category-list {
+    margin: 0 auto;
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: lex-start;
+        column-gap: 1.25%;
+        row-gap: 25px;
+        overflow: hidden;
+        padding: 0 0 25px 0;
+        text-align: center;
+
+        li {
+            min-width: 24%;
+            margin: 0;
+            float: left;
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &:last-child {}
+
+            a {
+                text-decoration: none;
+                display: block;
+                padding: 15px 12px;
+                box-shadow: $ShadowDefault;
+                color: $Gray;
+                border: 1px solid $Gray;
+                border-radius: 0px;
+
+
+                &:hover {
+                    color: $Gray-Light;
+                    opacity: 0.5;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+.posted {
+    .attached {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 25px;
+
+        p {
+            margin: 0;
+        }
+
+        .datetime {
+            display: inline-block;
+            margin: 0 15px 0 0;
+        }
+
+        .category {
+            display: inline-block;
+            font-size: $fontSize12;
+            font-weight: 500;
+            border-radius: 5px;
+            border: 1px solid $Gray;
+            padding: 4px 10px 6px 10px;
+        }
+
+        ul {
+            height: auto;
+            text-align: right;
+            margin: 0;
+
+            li {
+                vertical-align: text-bottom;
+                display: inline;
+                font-size: $fontSize12;
+                border-radius: 5px;
+                background-color: $Gray;
+                padding: 4px 10px 6px 10px;
+                margin-left: 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .date-category {
+        width: 35%;
+    }
+
+    .tag {
+        width: calc(65% - 25px);
+    }
+
+}
+
+//==================================================
+
+//CTA
+//==================================================
+
+#cta {
+    .wrapper {
+        background-image: url("#{$Images}common/bg-cta.png");
+        background-size: cover;
+        background-position: center;
+        background-color: rgba(0, 0, 0, 0.65);
+        background-blend-mode: multiply;
+
+        .container {
+            h2 {
+                color: $White;
+            }
+
+            .button_cover {
+                .button {
+                    p {
+                        color: rgba($MainColor, 1.0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//==================================================
+
+//アクティビティ向け
+//==================================================
+.activity {}
+
+//==================================================
+
+//配信動画向け
+//==================================================
+.movie {}
+
+#movie {
+    .list-item {
+        .attached {
+            .category {
+                width: auto;
+                padding: 4px 10px 6px 10px;
+            }
+        }
+    }
+}
+
+
+
+//==================================================
+
+//レスポンシブ
+//==================================================
+
+@media screen and (max-width:$BaseMediaSize) {
+    .list-item {
+        width: 90%;
+        margin: auto;
+
+        h2 {
+            font-size: $fontSize15;
+            margin-top: 10px;
+            font-weight: 500;
+
+        }
+
+        a {
+            color: $Gray;
+            text-decoration: none;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        img {}
+
+        .image-wrap {
+            width: auto;
+        }
+
+        .attached {
+            display: flex;
+            gap: 25px;
+
+            p {
+                margin: 0;
+            }
+
+            .datetime {
+                display: inline-block;
+                margin: 0 15px 0 0;
+            }
+
+            .category {
+                display: inline-block;
+                width: 100px;
+                padding: 4px 0 6px 0;
+                font-size: $fontSize12;
+                font-weight: 500;
+                text-align: center;
+                background-color: $Gray-Light;
+                border-radius: 5px;
+                color: $White;
+            }
+
+            ul {
+                height: auto;
+                text-align: right;
+                margin: 0;
+
+                li {
+                    vertical-align: text-bottom;
+                    display: inline;
+                    font-size: $fontSize12;
+                    border-radius: 5px;
+                    background-color: $Gray;
+                    padding: 4px 10px 6px 10px;
+                    margin-left: 10px;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .date-category {
+            width: 35%;
+        }
+
+        .tag {
+            width: calc(65% - 25px);
+        }
+
+        .flex-box+.flex-box {
+            margin-top: 20px;
+        }
+    }
+
+    .category-list {
+        margin: 0 auto;
+
+        ul {
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+}
+
+
+
+
+// ==================================================
+
+// クラス SP
+// ==================================================
+
+@media screen and (max-width: $BaseMediaSize) {}

@@ -1,0 +1,676 @@
+//function setting
+@use "../common/a-function" as *;
+
+//==================================================
+
+// ヘッダー
+//==================================================
+
+//　↓　PC閲覧時のSP側のメニュー削除
+.smartphone {
+    display: none;
+}
+
+//　↓　デフォルト設定
+#header {
+    //display: none;
+    position: fixed;
+    z-index: 500;
+    top: 30px;
+    left: 60px;
+    margin: auto;
+    width: calc(100vw - 120px);
+    border-radius: 50px;
+    transition: .5s;
+    background-color: rgba($White, 1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+
+
+    &.alpha {
+        background-color: rgba($White, 0.0);
+    }
+
+
+    //スクロール時の非表示設定（js連携）
+    &.hide {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    //スクロール後の設定（js連動）
+    &.scroll {
+        //スクロール後の背景色
+        background-color: rgba($White, 0.8);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        box-shadow: $ShadowWide;
+        //出現時のアニメーション設定
+        animation-name: fade-anime;
+        animation-duration: 0.5s;
+
+        .inner {
+            .logo {
+                a {
+                    width: 90px;
+                    height: 28px;
+                    background-image: url("../images/common/logo_test-black.svg");
+                }
+            }
+        }
+    }
+
+    .inner {
+        display: flex;
+        width: 100%;
+        height: $header-height;
+        padding: 0 10px 0 20px;
+        grid-auto-flow: column;
+        justify-content: center;
+
+        .logo {
+            margin: auto;
+
+            a {
+                display: block;
+                width: 223px;
+                height: 58px;
+                background-image: url("#{$Images}common/header_milize-logo.svg");
+                background-repeat: no-repeat;
+
+            }
+
+            a:hover {
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+        }
+
+    }
+
+    .header-icons {
+        display: flex;
+        gap: 10px;
+        margin: auto;
+
+        a:hover {
+            transition: .3s;
+            opacity: .8;
+        }
+    }
+
+
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: center;
+            height: $header-height;
+            font-weight: 100;
+            list-style: none;
+            gap: 10px;
+
+            li {
+                position: relative;
+                /*共通の設定打消し*/
+                padding: 0 15px;
+                line-height: $header-height;
+
+                a {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    box-sizing: border-box;
+                    text-decoration: none;
+                    font-weight: 400;
+                    color: $MainColor;
+                    font-size: $fontSize20;
+
+                    &.visited {
+                        pointer-events: none;
+                        color: rgba($Gray, 0.5);
+                    }
+                }
+
+                a:hover {
+                    opacity: 0.5;
+                    transition: 0.5s;
+                }
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+
+                ul {
+                    display: block;
+                }
+            }
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: $header-height;
+            left: -50%;
+            overflow: hidden;
+            width: 200px;
+            height: 0;
+            text-align: center;
+            transition: .3s;
+            transform: translateY(-8%);
+            opacity: 0;
+
+
+            li {
+                display: list-item;
+                margin-left: 0;
+                padding: 0;
+                border-bottom: 1px solid #ddd;
+                background-color: rgb(255 255 255 / 90%);
+            }
+        }
+
+        li:hover .sub-menu {
+            height: auto;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .header-nav .menu-item-has-children:nth-last-child(1) .sub-menu,
+        .header-nav .menu-item-has-children:nth-last-child(2) .sub-menu {
+            right: 0;
+            left: auto;
+        }
+
+        .header-nav .sub-menu li a {
+            padding: 1em;
+        }
+    }
+
+
+    @keyframes fade-anime {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
+.computer {
+    flex: 2;
+}
+
+@media screen and (max-width: $BaseMediaSize) {
+
+    //　↓　PC側のメニュー削除
+    .computer {
+        display: none;
+    }
+
+    //　↓　1stビュー位置：ハンバーガー展開部分調整
+    .first-view #header {
+        nav ul {
+            a {
+                background-color: rgba($White, 0.0);
+
+                &.visited {
+                    pointer-events: none;
+                    color: rgba($Gray, 0.5);
+                }
+            }
+        }
+    }
+
+    #header {
+        top: 0;
+        left: 0;
+        width: calc(100% - 0%);
+
+        .inner {
+            height: 75px;
+            padding: 0 10px;
+
+            .logo {
+                a {
+                    //　↓　1stビューのロゴをちょっとだけ大きくしている
+                    margin-left: 15px;
+                    width: 37px;
+                    height: 37px;
+                }
+            }
+        }
+
+
+
+        .header-icons {
+            display: none;
+        }
+
+        nav ul {
+            height: auto;
+
+            li {
+                margin-right: 0px;
+                border-top: solid 0.5px $Gray-Pale;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    border-bottom: solid 0.5px $Gray-Pale;
+                }
+
+                a {
+                    padding: 0;
+                    text-align: center;
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+                    background-color: rgba($White, 0.9);
+
+                    &:hover {
+                        opacity: 0.8;
+                        background-color: rgba($Gray, 0.9);
+                        color: $White;
+                    }
+
+                    &.visited {
+                        pointer-events: none;
+                        color: rgba($Gray, 0.5);
+                    }
+                }
+
+            }
+
+        }
+
+
+        &.scroll {
+            nav li {
+                a {
+                    background-color: rgba($White, 0.9);
+
+                    &:hover {
+                        opacity: 1;
+                        background-color: rgba($Gray, 0.9);
+                        color: $White;
+                    }
+                }
+            }
+
+        }
+    }
+
+    //　↓　以下スマホ時のハンバーガー周りの指定
+
+    #hamburger {
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+        margin: 0 0 0 auto;
+        height: 31px;
+        width: 60px;
+    }
+
+    .line-icon span {
+        position: absolute;
+        left: 15px;
+        width: 30px;
+        height: 2px;
+        background-color: $Gray;
+        border-radius: 2px;
+        transition: ease 0.75s;
+    }
+
+    .first-view #hamburger .line-icon span {
+        background-color: $White;
+    }
+
+    .scroll #hamburger .line-icon span {
+        background-color: $Gray;
+    }
+
+
+    .line-icon span:nth-of-type(1) {
+        top: 6px;
+    }
+
+    .line-icon span:nth-of-type(2) {
+        top: 13px;
+    }
+
+    .line-icon span:nth-of-type(3) {
+        bottom: 9px;
+    }
+
+    .close span:nth-of-type(1) {
+        transform: rotate(45deg);
+        top: 13px;
+    }
+
+    .close span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .close span:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 13px;
+    }
+
+    .smartphone {
+        top: 75px;
+        left: 0px;
+        position: absolute;
+        margin-top: 0;
+        z-index: 100;
+        width: 100%;
+    }
+
+    ul {
+        flex-direction: column;
+    }
+}
+
+//==================================================
+
+// サイドアイコンメニュー
+//==================================================
+
+#fixed {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: -50px;
+    bottom: calc(50% - 25px);
+    transition: .5s;
+    box-shadow: $ShadowDefault;
+    z-index: 99;
+
+    a {
+        display: block;
+        height: 50px;
+        color: rgba($Gray, 1.0);
+    }
+
+    &.scroll {
+        transform: translateX(-100%);
+    }
+
+    //中身のボックス指定
+    .primary,
+    .secondry,
+    .tertiary {
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        transition: .5s;
+        background-color: rgba($White, 0.9);
+        //border-right: 1px solid rgba($Gray, 0.9);
+        //border-left: 1px solid rgba($Gray, 0.9);
+        background-repeat: no-repeat;
+        background-size: 32px;
+        background-position: 9px;
+
+        &:hover {
+            transform: translateX(-100px);
+            background-color: rgba($Gray-Pale, 0.9);
+            box-shadow: $ShadowDefault;
+            z-index: 1000;
+        }
+
+        p {
+            display: block;
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translate(0, -50%);
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+        }
+
+    }
+
+
+    .primary {
+        top: 0;
+        background-image: url("#{$Images}common/icon_side-menu.svg");
+
+    }
+
+    .secondry {
+        top: 50px;
+        background-image: url("#{$Images}icons/icon_sns_instagram_333.svg");
+    }
+
+    .tertiary {
+        cursor: help;
+        bottom: 0;
+        background-image: url("#{$Images}icons/icon_sns_contact_333.svg");
+
+    }
+
+    @keyframes fixed-fade-anime {
+        0% {
+            opacity: 0;
+            transform: translate(50px, -50%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(0px, -50%);
+        }
+    }
+}
+
+//==================================================
+
+// フッター
+//==================================================
+#footer {
+    background-color: $MainColor-Pale;
+
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        min-height: $footer-height;
+        padding: 1rem 40px;
+        grid-auto-flow: column;
+        align-items: center;
+        background-image: url("../images/common/bg-footer.svg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+
+        .logo {
+            flex: 1;
+            position: relative;
+            width: 100%;
+
+            a {
+                display: block;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                @include transformX;
+                width: 385px;
+                height: 100px;
+                background-image: url("#{$Images}common/header_milize-logo.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            a:hover {
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+        }
+
+        .computer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            nav {
+                flex: 1;
+
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    height: $header-height;
+                    font-weight: 100;
+                    list-style: none;
+                    gap: 10px;
+
+                    li {
+                        position: relative;
+                        /*共通の設定打消し*/
+                        padding: 0 15px;
+                        line-height: $header-height;
+
+                        a {
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                            box-sizing: border-box;
+                            text-decoration: none;
+                            font-weight: 400;
+                            color: $MainColor;
+                            font-size: $fontSize20;
+
+                            &.visited {
+                                pointer-events: none;
+                                color: rgba($Gray, 0.5);
+                            }
+                        }
+
+                        a:hover {
+                            opacity: 0.5;
+                            transition: 0.5s;
+                        }
+
+                        &:last-child {
+                            margin-right: 0px;
+                        }
+
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    position: absolute;
+                    top: $header-height;
+                    left: -50%;
+                    overflow: hidden;
+                    width: 200px;
+                    height: 0;
+                    text-align: center;
+                    transition: .3s;
+                    transform: translateY(-8%);
+                    opacity: 0;
+
+
+                    li {
+                        display: list-item;
+                        margin-left: 0;
+                        padding: 0;
+                        border-bottom: 1px solid #ddd;
+                        background-color: rgb(255 255 255 / 90%);
+                    }
+                }
+
+                li:hover .sub-menu {
+                    height: auto;
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                .header-nav .menu-item-has-children:nth-last-child(1) .sub-menu,
+                .header-nav .menu-item-has-children:nth-last-child(2) .sub-menu {
+                    right: 0;
+                    left: auto;
+                }
+
+                .header-nav .sub-menu li a {
+                    padding: 1em;
+                }
+            }
+
+            .links {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                    color: $MainColor;
+
+                    p {}
+                }
+
+                .login {
+                    flex: 1;
+                }
+
+                .policys {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    gap: $CommonGap;
+
+                    p {
+                        font-size: $fontSize12;
+                    }
+                }
+            }
+
+
+        }
+
+        .copyright {}
+
+    }
+
+
+
+    .copyright {
+        text-align: center;
+    }
+
+    @media screen and (max-width: $BaseMediaSize) {
+        .inner {
+            .vertical {
+                h2 {
+                    position: initial;
+                    margin-bottom: 1rem;
+                }
+
+                ul {
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        .vertical+.vertical {
+            margin-left: 0;
+        }
+
+        .vertical+.side {
+            margin-left: 0;
+        }
+
+        .side+.vertical {
+            margin-left: 0;
+        }
+
+        .side+.side {
+            margin-left: 0;
+        }
+    }
+}

@@ -1,0 +1,379 @@
+//function setting
+@use "../common/a-function" as *;
+//@use "../common/_h_slide" as *;
+
+
+//==================================================
+
+//PC向け
+//==================================================
+
+//キービジュアル部分
+
+#key-visual {
+
+	h2 {
+		position: relative;
+		margin: 0;
+
+		span {
+			position: absolute;
+			color: #7D869A;
+			font-size: 1rem;
+			font-weight: 900;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	.container {
+		&.full {
+			.viewport-wrap {
+
+				&.first-view {
+					.movie {
+						width: 100%;
+						height: 100%;
+
+						video {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+				}
+
+				.viewport-inner {
+					&.primary {
+						bottom: 10%;
+						left: -30px;
+						padding: 10px;
+						background-color: $MainColor-blue;
+						transform: rotate(-3deg);
+
+						.header-inner {
+							padding: 0 15px;
+							transform: rotate(-5deg);
+							background-color: $MainColor;
+
+							h2 {
+								padding: 0 15px 0 60px;
+								font-size: 8vw;
+								font-weight: 900;
+								color: $White;
+
+								span {
+									left: 40px;
+									top: -2rem;
+									padding: 0 10px;
+									font-size: 1.5rem;
+									color: $MainColor-blue;
+									background-color: $White;
+								}
+
+							}
+						}
+
+					}
+
+					&.secondry {
+						display: flex;
+						column-gap: 15px;
+						bottom: 2%;
+						right: 0%;
+						width: 50%;
+						height: 80px;
+						border-radius: 40px 0 0 40px;
+						padding: 0 40px;
+						background-color: $White;
+
+						h2 {
+							display: block;
+							margin: 0;
+							font-size: $fontSize30;
+							line-height: 80px;
+						}
+
+						p {
+							display: block;
+							margin: 0;
+							font-size: $fontSize18;
+							line-height: 80px;
+
+							&.more {
+								margin-left: auto;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#story {
+	.wrapper {
+		background-image: url("#{$Images}top-page/bg-wire.svg");
+		background-repeat: no-repeat;
+	}
+
+	.container {
+		p {
+			text-align: center;
+			line-height: $line-height-high;
+		}
+	}
+
+}
+
+#about-us {
+	.container.wide {
+		background: $White;
+		padding: 120px 150px;
+		border-radius: 300px;
+
+		.column-single,
+		.column-flex {
+			padding: 30px 0;
+			align-items: center;
+
+			p {
+				color: $MainColor-brown;
+				line-height: $line-height-high;
+			}
+		}
+	}
+}
+
+#concept {
+
+	.container {
+		height: 1400px;
+		background-image: url("#{$Images}top-page/images_top-concept_group.png"),
+		url("#{$Images}top-page/bg-concept.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	h2 {
+		position: relative;
+		color: $MainColor-brown;
+
+		span {
+			position: absolute;
+			left: 50%;
+			top: calc(-#{$fontSize72} * 2);
+			@include transformX;
+			color: $MainColor;
+			font-size: $fontSize72;
+			line-height: $fontSize72;
+			font-weight: 600;
+		}
+	}
+
+	.button-wrap {
+		margin-top: 30px;
+	}
+}
+
+#event {
+	.container {
+		&.full {
+			background-image: url("#{$Images}top-page/bg-event.svg");
+			background-position: center;
+			background-size: cover;
+			background-color: $White;
+			border-radius: 500px 500px 0 0;
+			padding: 120px 150px;
+		}
+
+		.catch-copy {
+			color: $MainColor;
+		}
+
+		h2 {
+			position: relative;
+			text-align: left;
+			margin-bottom: 30px;
+
+			span {
+				position: absolute;
+				left: 0;
+				top: -1rem;
+				color: $MainColor;
+				font-weight: 600;
+				font-size: 1rem;
+				font-weight: 900;
+				letter-spacing: 0.05em;
+			}
+		}
+
+		p {
+			line-height: $line-height-midium;
+		}
+
+		.inside-box {
+			&.double {
+				.arrow {
+					flex: none;
+					align-self: center;
+					background: transparent;
+				}
+			}
+
+			.nested-box {
+				&.custom {
+					.button-wrap {
+						padding: 0;
+					}
+				}
+			}
+
+			.button_cover {
+				flex-grow: 1;
+			}
+		}
+
+
+	}
+}
+
+
+#voice {
+	background-color: $White;
+
+	.container.full {
+		padding: 120px 0;
+		background-image: url("#{$Images}top-page/bg-voice.svg");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+
+		.message {
+			padding: 30px 0;
+			color: $MainColor-brown;
+
+			p {
+				text-align: center;
+			}
+		}
+
+		.television {
+			position: relative;
+			width: 60%;
+			margin: auto;
+
+
+			.television-wrap {
+				position: relative;
+				z-index: 100;
+				width: 100%;
+				aspect-ratio: 10 / 8;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.television-inner {
+				position: absolute;
+				z-index: 10;
+				left: 46%;
+				top: 8%;
+				width: 82%;
+				@include transformX;
+				aspect-ratio: 10 / 8;
+				border-radius: 70px;
+				overflow: hidden;
+
+
+				video {
+					width: 100%;
+					height: auto;
+					object-fit: cover;
+					aspect-ratio: 10 / 8;
+				}
+			}
+		}
+	}
+
+}
+
+#plan {
+	.container {
+		display: flex;
+		padding: 150px 150px;
+		flex-direction: column;
+		background-image: url("#{$Images}top-page/bg-plan.svg");
+		background-position: center;
+		background-size: cover;
+		aspect-ratio: 10 / 7.2;
+
+		.column-flex {
+			flex: 1;
+			gap: 0;
+			align-items: flex-end;
+		}
+
+		.inside-box {
+			display: flex;
+			flex-direction: column;
+
+			&.expand {
+				flex: 2;
+			}
+
+			&.blue {
+				color: $MainColor-blue;
+			}
+
+			&.orange {
+				color: $MainColor;
+			}
+
+			&.brown {
+				color: $MainColor-brown;
+
+
+				p {
+					font-size: $fontSize12;
+					line-height: 48px;
+				}
+			}
+
+			p {
+				display: block;
+				text-align: center;
+				padding: 2rem 0;
+				border-bottom: 1px solid $MainColor-brown;
+				font-size: $fontSize24;
+
+				&.button {
+					border-bottom: none;
+					pointer-events: none;
+					box-shadow: none;
+					color: $White;
+
+					&.blue {
+						background-color: $MainColor-blue;
+					}
+
+					&.orange {
+						background-color: $MainColor;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+#blog {
+	.wrapper {
+		background-image: url("#{$Images}top-page/bg-blog.png");
+		background-color: $MainColor;
+	}
+}
+
+@media screen and (max-width: $BaseMediaSize) {}
