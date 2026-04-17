@@ -25,7 +25,25 @@ get_header();
             </div>
         </div>
     </section>
-
+    <section id="company-info">
+        <div class="wrapper">
+            <div class="container wide">
+                <h2>会社情報</h2>
+                <dl class="company-details">
+                    <dt>会社名</dt>
+                    <dd>株式会社ミライズ</dd>
+                    <dt>設立</dt>
+                    <dd>2020年4月</dd>
+                    <dt>代表者</dt>
+                    <dd>代表取締役 田中太郎</dd>
+                    <dt>所在地</dt>
+                    <dd>東京都渋谷区渋谷1-1-1</dd>
+                    <dt>事業内容</dt>
+                    <dd>マッチングコミュニティ運営、イベント企画、オンライン講座提供</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
 
     <?php // get_sidebar();
     ?>

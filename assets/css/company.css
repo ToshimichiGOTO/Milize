@@ -1,12 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
-#top {
-  background-color: rgb(255, 234, 207);
-}
-
 .company #company-info .company-details dt {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 .company #company-info .company-details dd {
   margin-bottom: 1rem;
-}/*# sourceMappingURL=uncommon.css.map */
+}/*# sourceMappingURL=company.css.map */
